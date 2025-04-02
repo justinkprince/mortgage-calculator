@@ -18,6 +18,7 @@ export function formatCurrency(value) {
 const valueBounds = {
   min: -3,
   max: 6,
+  increments: 5000,
 };
 
 export function calculateValues(
@@ -36,7 +37,9 @@ export function calculateValues(
 
   // Generate 11 values from baseAmount to baseAmount + 100k in 10k increments
   for (let i = valueBounds.min; i <= valueBounds.max; i++) {
-    const currentAmount = baseAmount + i * 10000;
+    const currentAmount = baseAmount + i * valueBounds.increments;
+
+    // Calculate values
     const downPayment = currentAmount * (downPaymentPercentage / 100);
     const closingCost = currentAmount * (closingCostPercentage / 100);
     const buyerAgentCommission =
