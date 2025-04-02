@@ -57,6 +57,7 @@ export function calculateValues(
       buyerAgentCommission,
       sellerAgentCommission,
       total,
+      currentAmount,
     });
   }
 
